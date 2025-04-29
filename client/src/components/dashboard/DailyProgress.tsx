@@ -5,6 +5,58 @@ interface DailyProgressProps {
   goal: number;
 }
 
+const ProgressCircle:React.FC<{percentage:number}> = ({percentage}) => {
+  return <div className="w-40 h-40 relative mb-6 md:mb-0">
+  <svg className="w-full h-full" viewBox="0 0 100 100">
+    {/* Background circle */}
+    <circle
+      cx="50"
+      cy="50"
+      r="45"
+      fill="none"
+      stroke="#EEF2FF"
+      strokeWidth="10"
+    />
+    
+    {/* Progress circle */}
+    <circle
+      cx="50"
+      cy="50"
+      r="45"
+      fill="none"
+      stroke="#34D399"
+      strokeWidth="10"
+      strokeLinecap="round"
+      strokeDasharray={`${percentage * 2.83} 283`}
+      strokeDashoffset="0"
+      transform="rotate(-90 50 50)"
+      className="transition-all duration-1000 ease-out"
+    />
+    
+    <text
+      x="50"
+      y="45"
+      textAnchor="middle"
+      fontSize="18"
+      fontWeight="bold"
+      fill="#4B5563"
+    >
+      {percentage}%
+    </text>
+    
+    <text
+      x="50"
+      y="65"
+      textAnchor="middle"
+      fontSize="12"
+      fill="#6B7280"
+    >
+      Complete
+    </text>
+  </svg>
+</div>;
+}
+
 const DailyProgress: React.FC<DailyProgressProps> = ({ consumed, goal }) => {
   const percentage = Math.min(Math.round((consumed / goal) * 100), 100);
   const remaining = goal - consumed;
@@ -19,55 +71,7 @@ const DailyProgress: React.FC<DailyProgressProps> = ({ consumed, goal }) => {
       </div>
       
       <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="w-40 h-40 relative mb-6 md:mb-0">
-          <svg className="w-full h-full" viewBox="0 0 100 100">
-            {/* Background circle */}
-            <circle
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="#EEF2FF"
-              strokeWidth="10"
-            />
-            
-            {/* Progress circle */}
-            <circle
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="#34D399"
-              strokeWidth="10"
-              strokeLinecap="round"
-              strokeDasharray={`${percentage * 2.83} 283`}
-              strokeDashoffset="0"
-              transform="rotate(-90 50 50)"
-              className="transition-all duration-1000 ease-out"
-            />
-            
-            <text
-              x="50"
-              y="45"
-              textAnchor="middle"
-              fontSize="18"
-              fontWeight="bold"
-              fill="#4B5563"
-            >
-              {percentage}%
-            </text>
-            
-            <text
-              x="50"
-              y="65"
-              textAnchor="middle"
-              fontSize="12"
-              fill="#6B7280"
-            >
-              Complete
-            </text>
-          </svg>
-        </div>
+        <ProgressCircle percentage={percentage}></ProgressCircle>
         
         <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-lg">
           <CalorieInfoCard 

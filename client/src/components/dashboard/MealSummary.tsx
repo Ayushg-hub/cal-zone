@@ -92,7 +92,10 @@ const MealCard: React.FC<MealCardProps> = ({ meal }) => {
               <p className="text-sm text-gray-700">{food.name}</p>
               <p className="text-xs text-gray-500">{food.amount}</p>
             </div>
-            <p className="text-sm font-medium text-gray-700">{food.calories} cal</p>
+            <p className="text-sm font-medium text-gray-700 pr-4">{food.calories} cal</p>
+            <p className="text-sm font-medium text-gray-700 pr-4">{100}g protien</p>
+            <p className="text-sm font-medium text-gray-700 pr-4">{50}g carbs</p>
+            <p className="text-sm font-medium text-gray-700">{50}g fats</p>
           </div>
         ))}
       </div>
