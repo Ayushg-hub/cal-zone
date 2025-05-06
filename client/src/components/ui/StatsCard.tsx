@@ -91,8 +91,8 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, value, unit, target, icon,
         </div>
         <p className="mt-1 text-sm text-gray-500">Target: {target} {unit}</p>
       </div>
-      <div className="mt-8">
-      <ProgressCircle percentage={percentage} color={color}></ProgressCircle>
+      <div className="mt-8 ml-6 justify-center">
+        <ProgressCircle percentage={percentage} color={color}></ProgressCircle>
       </div>
     </div>
   );

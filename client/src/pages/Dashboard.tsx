@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
         />
         <StatsCard 
           title="Carbs" 
-          value={65} 
+          value={125} 
           unit="g" 
           target={120}
           icon={<ActivitySquare className="h-6 w-6 text-pink-500" />}
