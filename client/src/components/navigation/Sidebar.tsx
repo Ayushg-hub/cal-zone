@@ -27,28 +27,7 @@ const Sidebar: React.FC = () => {
         </ul>
       </nav>
       
-      <div className="mt-auto pt-4 border-t border-gray-200">
-        <div className="p-4 bg-emerald-50 rounded-lg">
-          <h3 className="font-medium text-emerald-800">Daily Goal</h3>
-          <div className="mt-2 relative pt-1">
-            <div className="flex mb-2 items-center justify-between">
-              <div>
-                <span className="text-xs font-semibold inline-block text-emerald-600">
-                  1,200 / 2,000 kcal
-                </span>
-              </div>
-              <div className="text-right">
-                <span className="text-xs font-semibold inline-block text-emerald-600">
-                  60%
-                </span>
-              </div>
-            </div>
-            <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-emerald-200">
-              <div style={{ width: "60%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500 transition-all duration-500 ease-in-out"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

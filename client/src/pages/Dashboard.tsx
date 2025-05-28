@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, ActivitySquare, Droplets, TrendingUp } from 'lucide-react';
+import { Flame, Beef, Nut, Wheat } from 'lucide-react';
 import DailyProgress from '../components/dashboard/DailyProgress';
 import NutrientSummary from '../components/dashboard/NutrientSummary';
 import MealSummary from '../components/dashboard/MealSummary';
@@ -22,32 +22,36 @@ const Dashboard: React.FC = () => {
           value={1200} 
           unit="kcal" 
           target={2000}
-          icon={<PieChart className="h-6 w-6 text-emerald-500" />}
-          color="#A7F3D0"
+          icon={<Flame className="h-6 w-6 text-red-400" />}
+          circleColor="oklch(0.704 0.191 22.216)"
+          bgcolor="bg-red-100"
         />
         <StatsCard 
           title="Protein" 
           value={65} 
           unit="g" 
           target={120}
-          icon={<ActivitySquare className="h-6 w-6 text-blue-500" />}
-          color="#60A5FA"
+          icon={<Beef className="h-6 w-6 text-purple-500" />}
+          circleColor="oklch(0.627 0.265 303.9)"
+          bgcolor="bg-purple-100"
         />
         <StatsCard 
           title="Carbs" 
           value={125} 
           unit="g" 
           target={120}
-          icon={<ActivitySquare className="h-6 w-6 text-pink-500" />}
-          color="#F9A8D4"
+          icon={<Wheat className="h-6 w-6 text-emerald-500" />}
+          circleColor="oklch(0.696 0.17 162.48)"
+          bgcolor="bg-emerald-100"
         />
         <StatsCard 
           title="Fats" 
           value={65} 
           unit="g" 
           target={120}
-          icon={<ActivitySquare className="h-6 w-6 text-orange-500" />}
-          color="#FCD34D"
+          icon={<Nut className="h-6 w-6 text-yellow-500" />}
+          circleColor="oklch(0.769 0.188 70.08)"
+          bgcolor="bg-yellow-100"
         />
         {/* <StatsCard 
           title="Water" 
@@ -74,9 +78,9 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <WaterTracker />
-      </div>
+      </div> */}
     </div>
   );
 };

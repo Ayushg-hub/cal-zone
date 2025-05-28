@@ -6,7 +6,8 @@ interface StatsCardProps {
   unit: string;
   target: number;
   icon: React.ReactNode;
-  color: string;
+  bgcolor:string;
+  circleColor: string;
 }
 
 interface ProgressCircleProps {
@@ -67,20 +68,13 @@ const ProgressCircle:React.FC<ProgressCircleProps> = ({percentage, color}) => {
 </div>;
 }
 
-const StatsCard: React.FC<StatsCardProps> = ({ title, value, unit, target, icon, color }) => {
+const StatsCard: React.FC<StatsCardProps> = ({ title, value, unit, target, icon, bgcolor, circleColor }) => {
   const percentage = Math.min(Math.round((value / target) * 100), 100);
-  const colorClasses = {
-    emerald: 'bg-emerald-50 text-emerald-600',
-    blue: 'bg-blue-50 text-blue-600',
-    cyan: 'bg-cyan-50 text-cyan-600',
-    purple: 'bg-purple-50 text-purple-600'
-  };
-
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-indigo-50 rounded-xl shadow-sm p-6">
+    <div className={`bg-white rounded-xl shadow-sm p-6`}>
       <div className="flex items-center justify-between">
         <h3 className="text-gray-500 text-sm font-medium">{title}</h3>
-        <div className={`p-2 rounded-lg bg-${color}-50 text-${color}-600`}>
+        <div className={`p-2 rounded-lg`}>
           {icon}
         </div>
       </div>
@@ -92,7 +86,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, value, unit, target, icon,
         <p className="mt-1 text-sm text-gray-500">Target: {target} {unit}</p>
       </div>
       <div className="mt-8 ml-6 justify-center">
-        <ProgressCircle percentage={percentage} color={color}></ProgressCircle>
+        <ProgressCircle percentage={percentage} color={circleColor}></ProgressCircle>
       </div>
     </div>
   );

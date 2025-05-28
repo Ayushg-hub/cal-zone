@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@theme {
+  --color-primary: #EF5A6F;
+  --color-secondary: #FFF1DB;
+  --color-ternary: #D4BDAC;
+  --color-comp: #536493;
+}
+
+.progress-circle {
+  stroke: #536493;
+}
+.progress-circle-text {
+  fill: #536493;
+}

@@ -1,21 +1,44 @@
 import React, { useState } from 'react';
 import { Plus, X } from 'lucide-react';
-import RecipeViewCard from '../components/ui/RecipeVeiwCard'
+import { FoodItemCard } from '../components/ui/FoodItemCard';
+import { Fats, Carbohydrates } from '../components/Interfaces';
+
+function generateRandomFats(): Fats {
+  return new Fats(Math.random()*5,Math.random()*5,Math.random()*5,Math.random()*5);
+}
+
+function generateRandomCarbs(): Carbohydrates {
+  return new Carbohydrates(Math.random() * 20, Math.random() * 40);
+}
+
+function generateRandomProtiens() {
+  return Math.random() * 50;
+}
 
 const FoodDiary: React.FC = () => {
   const [isRecipePressed, setRecipePressed] = useState(false);
+  const ingredients = [
+    { id: 0, name: 'Salmon Fillet', cals: Math.random() * 800, fats: generateRandomFats(), carbs: generateRandomCarbs(), protien: generateRandomProtiens() },
+    { id: 1, name: 'Steamed Broccoli', cals: Math.random() * 800, fats: generateRandomFats(), carbs: generateRandomCarbs(), protien: generateRandomProtiens() },
+    { id: 2, name: 'Brown Rice', cals: Math.random() * 800, fats: generateRandomFats(), carbs: generateRandomCarbs(), protien: generateRandomProtiens() }
+  ];
+  const item = {
+    id: 4,
+    name: 'Salmon rice bowl',
+    cals: 100,
+    fats: generateRandomFats(), carbs: generateRandomCarbs(), protien: generateRandomProtiens() 
+  };
   return (
     <div>
       { isRecipePressed && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start">
+        <div className="fixed inset-0 bg-black/50 z-50 flex justify-center items-start">
         <div className="bg-white rounded shadow-lg mt-10">
           <div className="flex justify-end items-start">
             <button className='hover:redrounded hover:bg-grey-500 hover:text-white transition' onClick={() => {setRecipePressed(false)}}>
               <X></X>
             </button>
           </div>
-          <RecipeViewCard>
-          </RecipeViewCard>
+          <FoodItemCard ingredients={ingredients} item={item}></FoodItemCard>
         </div>
       </div>)
       }
